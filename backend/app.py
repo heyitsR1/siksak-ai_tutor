@@ -4,17 +4,23 @@ import asyncio
 from anthropic import AsyncAnthropic
 from rich.console import Console
 from rich.markdown import Markdown
+from colorama import init, Fore,Back, Style
+import requests
 
 load_dotenv()
+init(autoreset=True)
 ANTHROPIC_API_KEY = os.environ.get('ANTHROPIC_API_KEY')
 
 console = Console()
 client = AsyncAnthropic(api_key=ANTHROPIC_API_KEY)  
 async def main(): 
     x = True
-    print ("Enter q to quit the conversation")
+    print ('\n')
+    print (f"{Fore.RED} [Enter q to quit the conversation]")
+    print ('\n')
     while x: 
-        user_input = input ("User: ")
+        print(f"{Back.CYAN}User",end=': ')
+        user_input = input ()
         if (user_input =='q'):
             x=False
             break
@@ -24,6 +30,7 @@ async def main():
             messages=[{"role": "user", "content": user_input}]
         )
         print ("\n")
+        print (f"{Back.LIGHTBLACK_EX}Bot", end=' : ')
         md = Markdown(message.content[0].text)
         console.print(md)
         print ("\n")

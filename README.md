@@ -27,4 +27,12 @@ Differentiation, Value Proposal, Optimization
 Well, these kind of things, you find out after you start building, so....
 
 
+### Basic Setup 
+- Step 0, python3 -m venv .venv && source ./source/bin/activate
+- First, in the backend run (cd backend && pip install -r requirements.txt)
+- Second, in the frontend run (cd frontend && npm i)
+- Backend using Python FAST API (use: cd backend && uvicorn api:app --reload)
+- Frontend using Next JS (use: cd frontend && npm run dev)
+
+
 
